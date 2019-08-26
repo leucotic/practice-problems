@@ -1,9 +1,9 @@
 var map1 = [[1, 0, 1, 0, 1, 0, 0, 1, 0],
-			[1, 0, 0, 1, 1, 0, 0, 1, 0],
-			[1, 0, 1, 0, 1, 0, 0, 1, 0],
-			[0, 0, 0, 0, 1, 0, 0, 0, 0],
-			[0, 0, 0, 1, 1, 1, 0, 1, 0],
-			[0, 0, 1, 0, 1, 0, 0, 1, 0]];
+	    [1, 0, 0, 1, 1, 0, 0, 1, 0],
+	    [1, 0, 1, 0, 1, 0, 0, 1, 0],
+	    [0, 0, 0, 0, 1, 0, 0, 0, 0],
+	    [0, 0, 0, 1, 1, 1, 0, 1, 0],
+	    [0, 0, 1, 0, 1, 0, 0, 1, 0]];
 
 function findLand(mymap){
 	let mapwidth = mymap[0].length;
@@ -20,26 +20,26 @@ function findLand(mymap){
 }
 
 function makeIsland(pointsLeft){
-		let newPoint = pointsLeft.pop(); 
-		let workPath = [newPoint]; //current island exploration
+	let newPoint = pointsLeft.pop(); 
+	let workPath = [newPoint]; //current island exploration
 
-		for(i = 0; i<workPath.length; i++){ 
-			let currentPoint = workPath[i];
-			for(j = pointsLeft.length-1; j>=0; j--){
-				let point = pointsLeft[j];
+	for(i = 0; i<workPath.length; i++){ 
+		let currentPoint = workPath[i];
+		for(j = pointsLeft.length-1; j>=0; j--){
+			let point = pointsLeft[j];
 
-				//if the point is adjacent
-				if((currentPoint.y == point.y && ((currentPoint.x - 1) == point.x || (currentPoint.x + 1) == point.x))||(currentPoint.x == point.x && ((currentPoint.y - 1) == point.y || (currentPoint.y + 1) == point.y))){
+			//if the point is adjacent
+			if((currentPoint.y == point.y && ((currentPoint.x - 1) == point.x || (currentPoint.x + 1) == point.x))||(currentPoint.x == point.x && ((currentPoint.y - 1) == point.y || (currentPoint.y + 1) == point.y))){
 
-					workPath.push(point);					
-					pointsLeft.splice(j,1);
-					if(j < pointsLeft.length) j++; //unless first one is a hit
-				} 
-			}
-		} 
-		
-		return [pointsLeft, workPath];
-	}
+				workPath.push(point);					
+				pointsLeft.splice(j,1);
+				if(j < pointsLeft.length) j++; //unless first one is a hit
+			} 
+		}
+	} 
+
+	return [pointsLeft, workPath];
+}
 
 function countIslands(mymap){
 	let islands = [];
