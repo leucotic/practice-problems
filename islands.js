@@ -1,15 +1,15 @@
 var map1 = [[1, 0, 1, 0, 1, 0, 0, 1, 0],
-	    [1, 0, 0, 1, 1, 0, 0, 1, 0],
-	    [1, 0, 1, 0, 1, 0, 0, 1, 0],
-	    [0, 0, 0, 0, 1, 0, 0, 0, 0],
-	    [0, 0, 0, 1, 1, 1, 0, 1, 0],
-	    [0, 0, 1, 0, 1, 0, 0, 1, 0]];
+	    	[1, 0, 0, 1, 1, 0, 0, 1, 0],
+	    	[1, 0, 1, 0, 1, 0, 0, 1, 0],
+	    	[0, 0, 0, 0, 1, 0, 0, 0, 0],
+	    	[0, 0, 0, 1, 1, 1, 0, 1, 0],
+	    	[0, 0, 1, 0, 1, 0, 0, 1, 0]];
 
 function findLand(mymap){
 	let mapwidth = mymap[0].length;
 	let mapheight = mymap.length;
 	let land = [];
-		for(y = 0; y < mapheight; y++){
+	for(y = 0; y < mapheight; y++){
 		for(x = 0; x < mapwidth; x++){
 			if(mymap[y][x]===1){
 			   land.push({"x":x,"y":y});
